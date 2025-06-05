@@ -111,7 +111,7 @@ echo ""
 echo "========================================================"
 
 # Run the Streamlit demo app
-streamlit run web_app.py --server.port 8502 --server.address localhost
+streamlit run web_app.py
 
 # Deactivate virtual environment when done
 deactivate

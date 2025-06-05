@@ -4,8 +4,8 @@ A modern, **enhanced** web application built with Streamlit that converts **Chat
 
 ## 🚀 Project Links
 
-- **Landing Page**: [https://omidnw.github.io/chatgpt-downloader](https://omidnw.github.io/chatgpt-downloader)
-- **Source Code**: [https://github.com/omidnw/chatgpt-downloader](https://github.com/omidnw/chatgpt-downloader)
+- **Landing Page**: [https://ai-chat-downloader.omidrezakeshtkar.dev](https://ai-chat-downloader.omidrezakeshtkar.dev)
+- **Source Code**: [https://github.com/omidnw/ai-chat-downloader-pro](https://github.com/omidnw/ai-chat-downloader-pro)
 - **Local Installation Required**: Due to Playwright browser automation requirements
 
 ## 📚 Documentation
@@ -89,8 +89,8 @@ The startup scripts automatically handle:
 
 ```bash
 # Clone the repository
-git clone https://github.com/omidnw/chatgpt-downloader.git
-cd chatgpt-downloader
+git clone https://github.com/omidnw/ai-chat-downloader-pro.git
+cd ai-chat-downloader-pro
 
 # Create virtual environment (recommended)
 python -m venv venv
