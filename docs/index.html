@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AI Chat Downloader Pro</title>
+		<meta
+			name="description"
+			content="Convert ChatGPT and Claude conversations to Markdown files with advanced RTL/LTR support, batch processing, and queue management"
+		/>
+		<meta
+			name="keywords"
+			content="ChatGPT, Claude, AI, Markdown, Converter, Download, Chat, Batch Processing, RTL, LTR"
+		/>
+		<meta name="author" content="Omid" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:url"
+			content="https://omidnw.github.io/chatgpt-downloader/"
+		/>
+		<meta property="og:title" content="AI Chat Downloader Pro" />
+		<meta
+			property="og:description"
+			content="Convert ChatGPT and Claude conversations to Markdown files with advanced RTL/LTR support, batch processing, and queue management"
+		/>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta
+			property="twitter:url"
+			content="https://omidnw.github.io/chatgpt-downloader/"
+		/>
+		<meta property="twitter:title" content="AI Chat Downloader Pro" />
+		<meta
+			property="twitter:description"
+			content="Convert ChatGPT and Claude conversations to Markdown files with advanced RTL/LTR support, batch processing, and queue management"
+		/>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+					sans-serif;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+			}
+
+			.container {
+				text-align: center;
+				padding: 2rem;
+				max-width: 600px;
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
+				border-radius: 20px;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+			}
+
+			.logo {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+				animation: bounce 2s infinite;
+			}
+
+			@keyframes bounce {
+				0%,
+				20%,
+				50%,
+				80%,
+				100% {
+					transform: translateY(0);
+				}
+				40% {
+					transform: translateY(-10px);
+				}
+				60% {
+					transform: translateY(-5px);
+				}
+			}
+
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				font-weight: 700;
+			}
+
+			p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
+				line-height: 1.6;
+			}
+
+			.features {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+				margin: 2rem 0;
+			}
+
+			.feature {
+				background: rgba(255, 255, 255, 0.1);
+				padding: 1rem;
+				border-radius: 10px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.feature-icon {
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.cta-button {
+				display: inline-block;
+				background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+				color: white;
+				text-decoration: none;
+				padding: 1rem 2rem;
+				border-radius: 50px;
+				font-weight: 600;
+				font-size: 1.1rem;
+				margin: 1rem 0.5rem;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+				border: none;
+				cursor: pointer;
+			}
+
+			.cta-button:hover:not(.disabled) {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+			}
+
+			.cta-button.disabled {
+				background: linear-gradient(45deg, #999, #777);
+				cursor: not-allowed;
+				opacity: 0.7;
+			}
+
+			.secondary-button {
+				background: linear-gradient(45deg, #1f77b4, #0d47a1);
+			}
+
+			.coming-soon {
+				font-size: 0.9rem;
+				opacity: 0.8;
+				margin-top: 0.5rem;
+				color: #ffeb3b;
+			}
+
+			.install-note {
+				background: rgba(255, 235, 59, 0.2);
+				border: 1px solid rgba(255, 235, 59, 0.3);
+				border-radius: 10px;
+				padding: 1rem;
+				margin: 1.5rem 0;
+				color: #ffeb3b;
+			}
+
+			.loading {
+				margin-top: 2rem;
+				opacity: 0.8;
+			}
+
+			.spinner {
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				border-top: 2px solid white;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				animation: spin 1s linear infinite;
+				margin: 1rem auto;
+			}
+
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.github-link {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				background: rgba(255, 255, 255, 0.2);
+				padding: 10px;
+				border-radius: 50%;
+				text-decoration: none;
+				color: white;
+				font-size: 1.5rem;
+				transition: all 0.3s ease;
+			}
+
+			.github-link:hover {
+				background: rgba(255, 255, 255, 0.3);
+				transform: scale(1.1);
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					margin: 1rem;
+					padding: 1.5rem;
+				}
+
+				h1 {
+					font-size: 2rem;
+				}
+
+				.features {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a
+			href="https://github.com/omidnw/chatgpt-downloader"
+			class="github-link"
+			title="View on GitHub"
+		>
+			<span>🔗</span>
+		</a>
+
+		<div class="container">
+			<div class="logo">🤖</div>
+			<h1>AI Chat Downloader Pro</h1>
+			<p>
+				Convert <strong>ChatGPT and Claude</strong> conversations to clean,
+				formatted Markdown files with advanced RTL/LTR detection, batch
+				processing, and queue management.
+			</p>
+
+			<div class="features">
+				<div class="feature">
+					<div class="feature-icon">🤖</div>
+					<strong>Multi-Platform</strong><br />
+					ChatGPT & Claude support
+				</div>
+				<div class="feature">
+					<div class="feature-icon">📊</div>
+					<strong>Batch Processing</strong><br />
+					Multiple URLs at once
+				</div>
+				<div class="feature">
+					<div class="feature-icon">🌍</div>
+					<strong>Advanced RTL/LTR</strong><br />
+					Persian, Arabic & more
+				</div>
+				<div class="feature">
+					<div class="feature-icon">🔄</div>
+					<strong>Queue Management</strong><br />
+					Background processing
+				</div>
+			</div>
+
+			<div class="install-note">
+				⚠️ <strong>Local Installation Required</strong><br />
+				Due to browser automation requirements, this app cannot run on cloud
+				platforms.
+				<br /><strong>Download and run locally for full features!</strong>
+			</div>
+
+			<button class="cta-button disabled" disabled>🌐 Live Demo</button>
+			<div class="coming-soon">Coming Soon</div>
+
+			<a
+				href="https://github.com/omidnw/chatgpt-downloader"
+				class="cta-button secondary-button"
+			>
+				📚 View Source & Install
+			</a>
+		</div>
+
+		<script>
+			// Add some interactivity
+			document.addEventListener("DOMContentLoaded", function () {
+				const features = document.querySelectorAll(".feature");
+				features.forEach((feature, index) => {
+					setTimeout(() => {
+						feature.style.opacity = "0";
+						feature.style.transform = "translateY(20px)";
+						feature.style.transition = "all 0.5s ease";
+						setTimeout(() => {
+							feature.style.opacity = "1";
+							feature.style.transform = "translateY(0)";
+						}, 100);
+					}, index * 200);
+				});
+
+				// Demo button click handler
+				document
+					.querySelector(".cta-button.disabled")
+					.addEventListener("click", function (e) {
+						e.preventDefault();
+						alert(
+							"🚧 Live demo coming soon!\n\nFor now, please download and install locally from GitHub for full features."
+						);
+					});
+			});
+		</script>
+	</body>
+</html>

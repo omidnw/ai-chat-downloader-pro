@@ -1,0 +1,89 @@
+[global]
+
+# By default, Streamlit checks if the Python watchdog module is available
+# and, if not, prints a warning asking for you to install it. The watchdog
+# module is not required, it's just an optimization. You can safely ignore
+# the warning if you don't want to install it.
+disableWatchdogWarning = false
+
+# By default, Streamlit displays a warning when a user sets both a widget
+# default value in the function defining the widget and a widget value via
+# the widget's key in `st.session_state`.
+showWarningOnDirectExecution = false
+
+[logger]
+
+# Level of logging: 'error', 'warning', 'info', or 'debug'.
+level = "info"
+
+[client]
+
+# Whether to enable st.cache.
+caching = true
+
+# If false, makes your Streamlit script not draw the sidebar.
+showSidebarNavigation = false
+
+# Controls whether the default sidebar page navigation is shown. 
+showErrorDetails = true
+
+[server]
+
+# List of folders that should not be watched for changes. This impacts both
+# "Run on Save" and @st.cache.
+folderWatchBlacklist = []
+
+# Change the type of file watcher used by Streamlit, or turn it off completely.
+fileWatcherType = "auto"
+
+# Symmetric key used to produce signed cookies. If deploying on multiple replicas,
+# ensure that this is set to the same value across all replicas to ensure they all
+# share the same signed cookie-generating secret.
+cookieSecret = "your-cookie-secret-here"
+
+# If false, will attempt to open a browser window on start.
+headless = true
+
+# Automatically rerun script when the file is modified on disk.
+runOnSave = true
+
+# The address where the server will listen for client and browser connections.
+address = "0.0.0.0"
+
+# The port where the server will listen for client and browser connections.
+port = 8501
+
+# The base path for the URL where Streamlit should be reachable from.
+baseUrlPath = ""
+
+# Enables support for Cross-Origin Resource Sharing (CORS) protection, for added security.
+enableCORS = false
+
+# Enables support for Cross-Site Request Forgery (XSRF) protection, for added security.
+enableXsrfProtection = false
+
+[browser]
+
+# Internet address where users should point their browsers in order to connect to
+# the app. Can be IP address or DNS name and path.
+serverAddress = "localhost"
+
+# Whether to send usage statistics to Streamlit.
+gatherUsageStats = false
+
+[theme]
+
+# Primary accent color for interactive elements.
+primaryColor = "#1f77b4"
+
+# Background color for the main content area.
+backgroundColor = "#ffffff"
+
+# Background color used for the sidebar and most interactive widgets.
+secondaryBackgroundColor = "#f0f2f6"
+
+# Color used for almost all text.
+textColor = "#262730"
+
+# Font family for all text in the app.
+font = "sans serif" 

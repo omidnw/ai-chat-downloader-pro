@@ -1,0 +1,13 @@
+streamlit>=1.28.0
+playwright>=1.40.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+markdownify>=0.11.6
+lxml>=4.9.0
+
+# Enhanced async features (optional but recommended)
+litequeue>=0.8.0
+asyncio-throttle>=1.0.2
+
+# Additional dependencies for better performance
+aiofiles>=22.1.0
