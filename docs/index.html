@@ -279,8 +279,14 @@
 				project locally on your machine.
 			</div>
 
-			<button class="cta-button disabled" disabled>🌐 Live Demo</button>
-			<div class="coming-soon">Coming Soon</div>
+			<a
+				href="http://ai-chat-downloader.omidrezakeshtkar.dev/"
+				class="cta-button"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				🌐 Try Live Demo
+			</a>
 
 			<a
 				href="https://github.com/omidnw/ai-chat-downloader-pro"
@@ -306,15 +312,7 @@
 					}, index * 200);
 				});
 
-				// Demo button click handler
-				document
-					.querySelector(".cta-button.disabled")
-					.addEventListener("click", function (e) {
-						e.preventDefault();
-						alert(
-							"🚧 Live demo coming soon!\n\nFor now, please download and install locally from GitHub for full features."
-						);
-					});
+				// Live demo is now available - no special handler needed
 			});
 		</script>
 	</body>
